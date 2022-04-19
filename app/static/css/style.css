@@ -10,9 +10,10 @@
   }
 
 
-  body {
-    background-color: #387aa0;
-    background-image: url("/static/images/bg.jpg");
-    background-size: cover;
-    background-blend-mode: overlay;
+  body{
+    background-color:white;
+    background-image: url("/static/images/homepage1.jpg");
+    background-size:cover;
   }
+    
+  

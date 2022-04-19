@@ -1,10 +1,7 @@
 import logging
 
 from flask import Flask
-try:
-    from sklearn.externals import joblib
-except:
-    import joblib
+from flask_sqlalchemy import SQLAlchemy
 
 # create logger for app
 logger = logging.getLogger('app')
@@ -15,16 +12,11 @@ logging.basicConfig(format=FORMAT)
 
 app = Flask(__name__)
 app.config.from_object("app.config")
+db = SQLAlchemy(app)
 
-# unpickle my models
-MODELS = {
-    "iris": {
-        "estimator" : joblib.load('models/iris/model.pkl'),
-        "target_names": ['setosa', 'versicolor', 'virginica']
-    }
-}
 
-from .views import *   # flake8: noqa
+
+from .views import *   #flake8: noqa
 
 
 # Handle Bad Requests

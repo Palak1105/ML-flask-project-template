@@ -1,45 +1,8 @@
 # To Create the environment, run conda env create -f environment.yml
 name: pro-env
 dependencies:
-- click
-- decorator
 - flask
-- flask-wtf
-- ipython
-- ipython_genutils
-- itsdangerous
-- jinja2
-- markupsafe
-- mkl
-- numpy
-- openssl
-- pandas
-- pastedeploy
-- path.py
-- pexpect
-- pickleshare
-- pip
-- prompt_toolkit
-- ptyprocess
-- pygments
-- python=3.9
-- python-dateutil
-- pytz
-- scikit-learn
-- scipy
-- setuptools
-- simplegeneric
-- six
-- traitlets
-- wcwidth
-- werkzeug
-- wheel
-- wtforms
-- xz
-- zlib
-- sqlalchemy
+- flask-sqlalchemy
 - pip:
-  - ipython-genutils
-  - prompt-toolkit
   - gunicorn
 

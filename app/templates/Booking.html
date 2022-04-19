@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock header %}
+
+{% block body %}
+<!Doctype html>
+<head>
+  <style>
+    body {
+      
+      background-color: coral;
+    }
+    
+    .wrapper 
+    *, *:before, *:after{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: istok-web, sans-serif;
+    }
+    .form-signin {
+      max-width: 380px;
+      padding: 15px 35px 45px;
+      margin: 0 auto;
+      
+      border: 1px solid rgba(0,0,0,0.1); 
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    } 
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 mx-auto p-2">
+        <form class="form-signin p-4 text-center bg-white" method="POST" >       
+          <h2 class="form-signin-heading">Booking</h2>
+          <br>
+          <h6> Quantity 1</h6><br>
+          <h6> Price : Rs 1000</h6>
+          <button class="btn btn-danger" type="submit" >Book A New Cylinder</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+{% endblock body %}
+
+{% block js %}
+<script src="/static/js/index.js"></script>
+{% endblock js %}

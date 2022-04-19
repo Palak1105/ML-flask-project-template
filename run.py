@@ -1,6 +1,7 @@
-#!/usr/bin/env python
+
 import logging
 from app import app as application
+from app import db
 
 logger = logging.getLogger("app")
 
