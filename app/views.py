@@ -1,7 +1,8 @@
 from email.headerregistry import Address
 import logging
+from ntpath import join
 from flask  import render_template, flash, redirect, session, url_for,request
-from .models import  Booking, Customer, User
+from .models import  Booking, Customer, Cylinder, User
 from app import app,db
 logger = logging.getLogger('app')
 
@@ -98,10 +99,12 @@ def booking():
         return redirect('/payment')
     return render_template('Booking.html')
 
-@app.route('/dashboard')
+@app.route('/dashboard',methods=['GET','POST'])
 def dashboard():
     customers =Customer.query.all()
-    return render_template('Dashboard.html', cm=customers)
+    booking = Booking.query.all()
+    
+    return render_template('Dashboard.html', cm=customers, b=booking)
 
 @app.route('/payment', methods=['GET','POST'])
 def payment():
@@ -119,6 +122,8 @@ def logout():
     flash('You have successfully logged out','success')
     return redirect('/login')
 
-
+@app.route('/success')
+def success():
+    return render_template('success.html')
 
 

@@ -7,7 +7,7 @@ from hashlib import md5
 
 class User(db.Model):
     
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer,db.Identity(start=1000),primary_key=True,)
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String)
     created_on = db.Column(db.DateTime, default = datetime.now)
@@ -17,7 +17,7 @@ class User(db.Model):
 
 class Customer (db.Model):
     __tablename__ = "customers"
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer,db.Identity(start=10000), primary_key=True,)
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -31,7 +31,7 @@ class Customer (db.Model):
 
 class Cylinder(db.Model):
     __tablename__ = "cylinders"
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer,db.Identity(start=100), primary_key=True)
     weight = db.Column(db.Float)
     customer = db.Column(db.ForeignKey('customers.id'))
     booking = db.Column(db.ForeignKey('bookings.id'))
@@ -42,9 +42,10 @@ class Cylinder(db.Model):
 
 class  Booking(db.Model):
     __tablename__ = "bookings"
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer,db.Identity(start=1000), primary_key=True)
     customer = db.Column(db.ForeignKey('customers.id'))
     booking_date = db.Column(db.DateTime, default = datetime.now)
+    confirmed = db.Column(db.Boolean, default=False)
     def __self__(self):
         return self.id
 
